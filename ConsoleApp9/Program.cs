@@ -226,7 +226,7 @@ namespace ConsoleApp9
                  );*/
 
             Console.WriteLine();
-            int digit = 5;
+            int digit = 6;
 
             Console.WriteLine(increase(ref digit));
             Console.WriteLine(digit);
