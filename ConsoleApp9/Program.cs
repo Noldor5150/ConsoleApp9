@@ -7,30 +7,43 @@ namespace ConsoleApp9
 
         static void Main(string[] args)
         {
-           
-            Console.WriteLine("Iveskite pirma skaiciu");
-            int NumberOne = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Iveskite antra skaiciu");
-            int NumberTwo = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Iveskite trecia skaiciu");
-            int NumberThree = Convert.ToInt32(Console.ReadLine());
-
-            Console.WriteLine(FindBiggestNumber(NumberOne, NumberTwo, NumberThree));
+            int[]data = ArrayReferenceTest(5);
+            PrintArrayValues(data);
+            SpoilArray(data);
+            PrintArrayValues(data);
         }
-        static int  FindBiggestNumber(int a, int b,int c)
+    
+
+     
+        static int [] ArrayReferenceTest(int a)
         {
-            if (a>b && a>c)
+            int[] numbers = new int [a];
+
+            for(int i = 0; i < numbers.Length; i++)
             {
-                return a;
+                Console.WriteLine("iveskite skaiciu");
+                int number = Convert.ToInt32(Console.ReadLine());
+                numbers[i] = number;
             }
-            else if (b > c)
+            return numbers;
+
+        }
+
+        static void PrintArrayValues(int [] array)
+        {
+            foreach(int number in array)
             {
-                return b;
+                Console.WriteLine(number);
             }
-            else
+        }
+        static int[] SpoilArray(int[] array) 
+        {
+            for(int i = 0; i<array.Length; i++)
             {
-                return c;
+                array[i]= 0;
             }
+
+            return array;
         }
     }
 }
