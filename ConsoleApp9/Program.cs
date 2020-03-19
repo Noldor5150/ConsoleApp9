@@ -1,5 +1,7 @@
 ﻿using System;
 
+using System.Collections.Generic;
+
 namespace ConsoleApp9
 {
     class Program
@@ -7,43 +9,34 @@ namespace ConsoleApp9
 
         static void Main(string[] args)
         {
-            int[]data = ArrayReferenceTest(5);
-            PrintArrayValues(data);
-            SpoilArray(data);
-            PrintArrayValues(data);
+            List<int> numbers = new List<int>() { 1,2,3,4,5};
+            PrintListValues(numbers);
+            addToList(numbers);
+            PrintListValues(numbers);
+            
+            Console.WriteLine(numbers.Count);
+            Console.WriteLine(listIncludesNumber(numbers, 10));
         }
-    
-
      
-        static int [] ArrayReferenceTest(int a)
+        static void PrintListValues(List<int>a)
         {
-            int[] numbers = new int [a];
-
-            for(int i = 0; i < numbers.Length; i++)
-            {
-                Console.WriteLine("iveskite skaiciu");
-                int number = Convert.ToInt32(Console.ReadLine());
-                numbers[i] = number;
-            }
-            return numbers;
-
-        }
-
-        static void PrintArrayValues(int [] array)
-        {
-            foreach(int number in array)
+            foreach(int number in a)
             {
                 Console.WriteLine(number);
             }
         }
-        static int[] SpoilArray(int[] array) 
-        {
-            for(int i = 0; i<array.Length; i++)
-            {
-                array[i]= 0;
-            }
 
-            return array;
+        static List<int> addToList(List<int> list)
+        {
+            // tau cia returnas nera butinas. jo nenaudoji. (void uztektu)
+              list.Add(7);
+              return list;
         }
+
+        static bool listIncludesNumber(List<int> list, int number)
+        {
+            return list.Contains(number);
+        }
+      
     }
 }
